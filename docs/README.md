@@ -4,7 +4,7 @@
     ❮ Zi annex - linkman ❯</p>
 </h1>
 <h2 align="center">
-  <p align="center"> An annex delivers capability to install manpage</p>
+  <p align="center"> An annex delivers the capability to install manpage </p>
 </h2><hr />
 
 ## 💡 Wiki: [annexes](https://wiki.zshell.dev/ecosystem/category/-annexes) | [packages](https://wiki.zshell.dev/ecosystem/category/-packages)
