@@ -1,7 +1,7 @@
 <h1 align="center">
   <p align="center"><a href="https://github.com/z-shell/zi">
     <img align="center" src="https://raw.githubusercontent.com/z-shell/wiki/main/static/img/logo.png" alt="Logo" width="60px" height="60px" /></a>
-    ❮ Zi annex - linkman ❯</p>
+    ❮ Zi Annex - Linkman ❯</p>
 </h1>
 <h2 align="center">
   <p align="center"> An annex delivers the capability to install manpage </p>
