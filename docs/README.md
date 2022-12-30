@@ -6,7 +6,9 @@
 <h2 align="center">
   <p align="center"> An annex delivers the capability to install manpage </p>
 </h2>
-  <p align="center"><img align="center" src="https://user-images.githubusercontent.com/59910950/210048318-4823a2bc-2263-46b6-b0ad-9b0197dd3889.gif" alt="zi annex linkman" width="100%" height="auto" /></p><hr />
+<p align="center">
+  <img align="center" src="https://user-images.githubusercontent.com/59910950/210048318-4823a2bc-2263-46b6-b0ad-9b0197dd3889.gif" alt="zi annex linkman" width="100%" height="auto" />
+</p><hr />
 
 ## 💡 Wiki: [annexes](https://wiki.zshell.dev/ecosystem/category/-annexes) | [packages](https://wiki.zshell.dev/ecosystem/category/-packages)
 
