@@ -1,0 +1,39 @@
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+
+builtin emulate -L zsh ${=${options[xtrace]:#off}:+-o xtrace}
+builtin setopt extended_glob warn_create_global typeset_silent no_short_loops rc_quotes no_auto_pushd
+
+if [[ "$1" = plugin ]]; then
+  local type="$1" user="$2" plugin="$3" id_as="$4" dir="${5#%}" hook="$6"
+else
+  local type="$1" url="$2" id_as="$3" dir="${4#%}" hook="$5"
+fi
+
+if (( ${+ICE[lman]} )); then
+  [[ -d ${ZI[MAN_DIR]}/man1 ]] || \
+  { +zi-message "{annex}linkman-annex{ehi}:{warn} Missing {url}${ZI[MAN_DIR]}/man1{{warn}}, skipping install of the manpage{…}{rst}" && return}
+
+  local manfiles=${dir}/**/*(.[1-9]|.[1-9].gz)(N.)
+  declare -a manfile installed attempted failed
+
+  for manfile ( $~manfiles ); do
+    (( ${attempted[(I)$manfile:t]} )) && continue
+    attempted+=( $manfile:t )
+    { test -f $manfile } && {
+      command ln -f -- $manfile "${ZI[MAN_DIR]}/man${${${manfile:t}//[!1-9]}[-1]}" && \
+      installed+=( "{obj}$manfile:t" )
+    } || {
+      failed+=( "{obj}$manfile:t" )
+    }
+  done
+
+  if (( !OPTS[opt_-q,--quiet] )); then
+    if (( ${#installed} )) {
+      +zi-message "{annex}linkman-annex{ehi}:{msg} Successfully installed manpage${${${#installed}/1/}:+s}: ${(j:, :)installed}{rst}"
+    }
+    if (( ${#failed} )) {
+      +zi-message "{annex}linkman-annex{ehi}:{error} Failed to install manpage${${${#failed}/1/}:+s}: ${(j:, :)failed}{rst}"
+    }
+  fi
+fi
